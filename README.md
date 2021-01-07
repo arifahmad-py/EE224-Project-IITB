@@ -1,1 +1,2 @@
 # EE224-Project-IITB
+This is a repository, containing the course project I did in the end of my Course, EE 224- Digital Systems. It was a team project done in collaboration with my classmates Tushar Nandy, Suraj Samaga, Tanmay Jain. All four of us are undergraduates in the Electrical Engineering department, IIT Bombay. In this project, we designed a signed 16-bit  Arithmetic and Logical Unit (ALU). We Used Structural VHDL for the design. The project also contains a Design of a fast adder (Brent Kung/ Kogge Stone) to compute addition operation.
