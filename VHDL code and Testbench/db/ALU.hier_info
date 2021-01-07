@@ -1,0 +1,6871 @@
+|ALU
+A[0] => HalfAdder:gen_diamond:0:ha_instance.a
+A[1] => HalfAdder:gen_diamond:1:ha_instance.a
+A[2] => HalfAdder:gen_diamond:2:ha_instance.a
+A[3] => HalfAdder:gen_diamond:3:ha_instance.a
+A[4] => HalfAdder:gen_diamond:4:ha_instance.a
+A[5] => HalfAdder:gen_diamond:5:ha_instance.a
+A[6] => HalfAdder:gen_diamond:6:ha_instance.a
+A[7] => HalfAdder:gen_diamond:7:ha_instance.a
+A[8] => HalfAdder:gen_diamond:8:ha_instance.a
+A[9] => HalfAdder:gen_diamond:9:ha_instance.a
+A[10] => HalfAdder:gen_diamond:10:ha_instance.a
+A[11] => HalfAdder:gen_diamond:11:ha_instance.a
+A[12] => HalfAdder:gen_diamond:12:ha_instance.a
+A[13] => HalfAdder:gen_diamond:13:ha_instance.a
+A[14] => HalfAdder:gen_diamond:14:ha_instance.a
+A[15] => HalfAdder:gen_diamond:15:ha_instance.a
+B[0] => preprocess:gen_preprocess:0:pp_instance.Bin
+B[1] => preprocess:gen_preprocess:1:pp_instance.Bin
+B[2] => preprocess:gen_preprocess:2:pp_instance.Bin
+B[3] => preprocess:gen_preprocess:3:pp_instance.Bin
+B[4] => preprocess:gen_preprocess:4:pp_instance.Bin
+B[5] => preprocess:gen_preprocess:5:pp_instance.Bin
+B[6] => preprocess:gen_preprocess:6:pp_instance.Bin
+B[7] => preprocess:gen_preprocess:7:pp_instance.Bin
+B[8] => preprocess:gen_preprocess:8:pp_instance.Bin
+B[9] => preprocess:gen_preprocess:9:pp_instance.Bin
+B[10] => preprocess:gen_preprocess:10:pp_instance.Bin
+B[11] => preprocess:gen_preprocess:11:pp_instance.Bin
+B[12] => preprocess:gen_preprocess:12:pp_instance.Bin
+B[13] => preprocess:gen_preprocess:13:pp_instance.Bin
+B[14] => preprocess:gen_preprocess:14:pp_instance.Bin
+B[15] => preprocess:gen_preprocess:15:pp_instance.Bin
+S1 => not_op:s1bar.x
+S1 => postprocess:postprocess0.S1
+S1 => postprocess:gen_postprocess:1:pop_instance.S1
+S1 => postprocess:gen_postprocess:2:pop_instance.S1
+S1 => postprocess:gen_postprocess:3:pop_instance.S1
+S1 => postprocess:gen_postprocess:4:pop_instance.S1
+S1 => postprocess:gen_postprocess:5:pop_instance.S1
+S1 => postprocess:gen_postprocess:6:pop_instance.S1
+S1 => postprocess:gen_postprocess:7:pop_instance.S1
+S1 => postprocess:gen_postprocess:8:pop_instance.S1
+S1 => postprocess:gen_postprocess:9:pop_instance.S1
+S1 => postprocess:gen_postprocess:10:pop_instance.S1
+S1 => postprocess:gen_postprocess:11:pop_instance.S1
+S1 => postprocess:gen_postprocess:12:pop_instance.S1
+S1 => postprocess:gen_postprocess:13:pop_instance.S1
+S1 => postprocess:gen_postprocess:14:pop_instance.S1
+S1 => postprocess:gen_postprocess:15:pop_instance.S1
+S0 => and_op:cin.y
+S0 => postprocess:postprocess0.S0
+S0 => postprocess:gen_postprocess:1:pop_instance.S0
+S0 => postprocess:gen_postprocess:2:pop_instance.S0
+S0 => postprocess:gen_postprocess:3:pop_instance.S0
+S0 => postprocess:gen_postprocess:4:pop_instance.S0
+S0 => postprocess:gen_postprocess:5:pop_instance.S0
+S0 => postprocess:gen_postprocess:6:pop_instance.S0
+S0 => postprocess:gen_postprocess:7:pop_instance.S0
+S0 => postprocess:gen_postprocess:8:pop_instance.S0
+S0 => postprocess:gen_postprocess:9:pop_instance.S0
+S0 => postprocess:gen_postprocess:10:pop_instance.S0
+S0 => postprocess:gen_postprocess:11:pop_instance.S0
+S0 => postprocess:gen_postprocess:12:pop_instance.S0
+S0 => postprocess:gen_postprocess:13:pop_instance.S0
+S0 => postprocess:gen_postprocess:14:pop_instance.S0
+S0 => postprocess:gen_postprocess:15:pop_instance.S0
+R[0] << postprocess:postprocess0.output
+R[1] << postprocess:gen_postprocess:1:pop_instance.output
+R[2] << postprocess:gen_postprocess:2:pop_instance.output
+R[3] << postprocess:gen_postprocess:3:pop_instance.output
+R[4] << postprocess:gen_postprocess:4:pop_instance.output
+R[5] << postprocess:gen_postprocess:5:pop_instance.output
+R[6] << postprocess:gen_postprocess:6:pop_instance.output
+R[7] << postprocess:gen_postprocess:7:pop_instance.output
+R[8] << postprocess:gen_postprocess:8:pop_instance.output
+R[9] << postprocess:gen_postprocess:9:pop_instance.output
+R[10] << postprocess:gen_postprocess:10:pop_instance.output
+R[11] << postprocess:gen_postprocess:11:pop_instance.output
+R[12] << postprocess:gen_postprocess:12:pop_instance.output
+R[13] << postprocess:gen_postprocess:13:pop_instance.output
+R[14] << postprocess:gen_postprocess:14:pop_instance.output
+R[15] << postprocess:gen_postprocess:15:pop_instance.output
+Z << nor_15:getting_z.z
+Cout << and_op:Carry_out.z
+
+
+|ALU|not_op:s1bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|and_op:cin
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:0:pp_instance
+Bin => xor_op:b_out.m
+Cin => xor_op:b_out.l
+Bout <= xor_op:b_out.n
+
+
+|ALU|preprocess:\gen_preprocess:0:pp_instance|xor_op:b_out
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|preprocess:\gen_preprocess:0:pp_instance|xor_op:b_out|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:0:pp_instance|xor_op:b_out|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:0:pp_instance|xor_op:b_out|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:0:pp_instance|xor_op:b_out|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:0:pp_instance|xor_op:b_out|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:0:pp_instance|xor_op:b_out|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:0:pp_instance|xor_op:b_out|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:0:pp_instance|xor_op:b_out|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:0:pp_instance|xor_op:b_out|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:0:pp_instance|xor_op:b_out|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:0:pp_instance|xor_op:b_out|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:0:pp_instance|xor_op:b_out|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:1:pp_instance
+Bin => xor_op:b_out.m
+Cin => xor_op:b_out.l
+Bout <= xor_op:b_out.n
+
+
+|ALU|preprocess:\gen_preprocess:1:pp_instance|xor_op:b_out
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|preprocess:\gen_preprocess:1:pp_instance|xor_op:b_out|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:1:pp_instance|xor_op:b_out|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:1:pp_instance|xor_op:b_out|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:1:pp_instance|xor_op:b_out|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:1:pp_instance|xor_op:b_out|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:1:pp_instance|xor_op:b_out|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:1:pp_instance|xor_op:b_out|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:1:pp_instance|xor_op:b_out|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:1:pp_instance|xor_op:b_out|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:1:pp_instance|xor_op:b_out|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:1:pp_instance|xor_op:b_out|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:1:pp_instance|xor_op:b_out|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:2:pp_instance
+Bin => xor_op:b_out.m
+Cin => xor_op:b_out.l
+Bout <= xor_op:b_out.n
+
+
+|ALU|preprocess:\gen_preprocess:2:pp_instance|xor_op:b_out
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|preprocess:\gen_preprocess:2:pp_instance|xor_op:b_out|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:2:pp_instance|xor_op:b_out|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:2:pp_instance|xor_op:b_out|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:2:pp_instance|xor_op:b_out|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:2:pp_instance|xor_op:b_out|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:2:pp_instance|xor_op:b_out|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:2:pp_instance|xor_op:b_out|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:2:pp_instance|xor_op:b_out|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:2:pp_instance|xor_op:b_out|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:2:pp_instance|xor_op:b_out|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:2:pp_instance|xor_op:b_out|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:2:pp_instance|xor_op:b_out|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:3:pp_instance
+Bin => xor_op:b_out.m
+Cin => xor_op:b_out.l
+Bout <= xor_op:b_out.n
+
+
+|ALU|preprocess:\gen_preprocess:3:pp_instance|xor_op:b_out
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|preprocess:\gen_preprocess:3:pp_instance|xor_op:b_out|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:3:pp_instance|xor_op:b_out|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:3:pp_instance|xor_op:b_out|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:3:pp_instance|xor_op:b_out|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:3:pp_instance|xor_op:b_out|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:3:pp_instance|xor_op:b_out|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:3:pp_instance|xor_op:b_out|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:3:pp_instance|xor_op:b_out|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:3:pp_instance|xor_op:b_out|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:3:pp_instance|xor_op:b_out|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:3:pp_instance|xor_op:b_out|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:3:pp_instance|xor_op:b_out|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:4:pp_instance
+Bin => xor_op:b_out.m
+Cin => xor_op:b_out.l
+Bout <= xor_op:b_out.n
+
+
+|ALU|preprocess:\gen_preprocess:4:pp_instance|xor_op:b_out
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|preprocess:\gen_preprocess:4:pp_instance|xor_op:b_out|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:4:pp_instance|xor_op:b_out|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:4:pp_instance|xor_op:b_out|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:4:pp_instance|xor_op:b_out|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:4:pp_instance|xor_op:b_out|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:4:pp_instance|xor_op:b_out|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:4:pp_instance|xor_op:b_out|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:4:pp_instance|xor_op:b_out|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:4:pp_instance|xor_op:b_out|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:4:pp_instance|xor_op:b_out|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:4:pp_instance|xor_op:b_out|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:4:pp_instance|xor_op:b_out|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:5:pp_instance
+Bin => xor_op:b_out.m
+Cin => xor_op:b_out.l
+Bout <= xor_op:b_out.n
+
+
+|ALU|preprocess:\gen_preprocess:5:pp_instance|xor_op:b_out
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|preprocess:\gen_preprocess:5:pp_instance|xor_op:b_out|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:5:pp_instance|xor_op:b_out|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:5:pp_instance|xor_op:b_out|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:5:pp_instance|xor_op:b_out|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:5:pp_instance|xor_op:b_out|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:5:pp_instance|xor_op:b_out|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:5:pp_instance|xor_op:b_out|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:5:pp_instance|xor_op:b_out|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:5:pp_instance|xor_op:b_out|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:5:pp_instance|xor_op:b_out|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:5:pp_instance|xor_op:b_out|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:5:pp_instance|xor_op:b_out|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:6:pp_instance
+Bin => xor_op:b_out.m
+Cin => xor_op:b_out.l
+Bout <= xor_op:b_out.n
+
+
+|ALU|preprocess:\gen_preprocess:6:pp_instance|xor_op:b_out
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|preprocess:\gen_preprocess:6:pp_instance|xor_op:b_out|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:6:pp_instance|xor_op:b_out|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:6:pp_instance|xor_op:b_out|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:6:pp_instance|xor_op:b_out|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:6:pp_instance|xor_op:b_out|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:6:pp_instance|xor_op:b_out|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:6:pp_instance|xor_op:b_out|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:6:pp_instance|xor_op:b_out|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:6:pp_instance|xor_op:b_out|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:6:pp_instance|xor_op:b_out|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:6:pp_instance|xor_op:b_out|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:6:pp_instance|xor_op:b_out|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:7:pp_instance
+Bin => xor_op:b_out.m
+Cin => xor_op:b_out.l
+Bout <= xor_op:b_out.n
+
+
+|ALU|preprocess:\gen_preprocess:7:pp_instance|xor_op:b_out
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|preprocess:\gen_preprocess:7:pp_instance|xor_op:b_out|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:7:pp_instance|xor_op:b_out|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:7:pp_instance|xor_op:b_out|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:7:pp_instance|xor_op:b_out|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:7:pp_instance|xor_op:b_out|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:7:pp_instance|xor_op:b_out|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:7:pp_instance|xor_op:b_out|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:7:pp_instance|xor_op:b_out|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:7:pp_instance|xor_op:b_out|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:7:pp_instance|xor_op:b_out|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:7:pp_instance|xor_op:b_out|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:7:pp_instance|xor_op:b_out|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:8:pp_instance
+Bin => xor_op:b_out.m
+Cin => xor_op:b_out.l
+Bout <= xor_op:b_out.n
+
+
+|ALU|preprocess:\gen_preprocess:8:pp_instance|xor_op:b_out
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|preprocess:\gen_preprocess:8:pp_instance|xor_op:b_out|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:8:pp_instance|xor_op:b_out|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:8:pp_instance|xor_op:b_out|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:8:pp_instance|xor_op:b_out|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:8:pp_instance|xor_op:b_out|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:8:pp_instance|xor_op:b_out|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:8:pp_instance|xor_op:b_out|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:8:pp_instance|xor_op:b_out|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:8:pp_instance|xor_op:b_out|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:8:pp_instance|xor_op:b_out|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:8:pp_instance|xor_op:b_out|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:8:pp_instance|xor_op:b_out|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:9:pp_instance
+Bin => xor_op:b_out.m
+Cin => xor_op:b_out.l
+Bout <= xor_op:b_out.n
+
+
+|ALU|preprocess:\gen_preprocess:9:pp_instance|xor_op:b_out
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|preprocess:\gen_preprocess:9:pp_instance|xor_op:b_out|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:9:pp_instance|xor_op:b_out|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:9:pp_instance|xor_op:b_out|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:9:pp_instance|xor_op:b_out|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:9:pp_instance|xor_op:b_out|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:9:pp_instance|xor_op:b_out|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:9:pp_instance|xor_op:b_out|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:9:pp_instance|xor_op:b_out|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:9:pp_instance|xor_op:b_out|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:9:pp_instance|xor_op:b_out|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:9:pp_instance|xor_op:b_out|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:9:pp_instance|xor_op:b_out|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:10:pp_instance
+Bin => xor_op:b_out.m
+Cin => xor_op:b_out.l
+Bout <= xor_op:b_out.n
+
+
+|ALU|preprocess:\gen_preprocess:10:pp_instance|xor_op:b_out
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|preprocess:\gen_preprocess:10:pp_instance|xor_op:b_out|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:10:pp_instance|xor_op:b_out|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:10:pp_instance|xor_op:b_out|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:10:pp_instance|xor_op:b_out|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:10:pp_instance|xor_op:b_out|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:10:pp_instance|xor_op:b_out|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:10:pp_instance|xor_op:b_out|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:10:pp_instance|xor_op:b_out|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:10:pp_instance|xor_op:b_out|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:10:pp_instance|xor_op:b_out|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:10:pp_instance|xor_op:b_out|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:10:pp_instance|xor_op:b_out|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:11:pp_instance
+Bin => xor_op:b_out.m
+Cin => xor_op:b_out.l
+Bout <= xor_op:b_out.n
+
+
+|ALU|preprocess:\gen_preprocess:11:pp_instance|xor_op:b_out
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|preprocess:\gen_preprocess:11:pp_instance|xor_op:b_out|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:11:pp_instance|xor_op:b_out|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:11:pp_instance|xor_op:b_out|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:11:pp_instance|xor_op:b_out|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:11:pp_instance|xor_op:b_out|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:11:pp_instance|xor_op:b_out|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:11:pp_instance|xor_op:b_out|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:11:pp_instance|xor_op:b_out|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:11:pp_instance|xor_op:b_out|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:11:pp_instance|xor_op:b_out|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:11:pp_instance|xor_op:b_out|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:11:pp_instance|xor_op:b_out|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:12:pp_instance
+Bin => xor_op:b_out.m
+Cin => xor_op:b_out.l
+Bout <= xor_op:b_out.n
+
+
+|ALU|preprocess:\gen_preprocess:12:pp_instance|xor_op:b_out
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|preprocess:\gen_preprocess:12:pp_instance|xor_op:b_out|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:12:pp_instance|xor_op:b_out|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:12:pp_instance|xor_op:b_out|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:12:pp_instance|xor_op:b_out|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:12:pp_instance|xor_op:b_out|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:12:pp_instance|xor_op:b_out|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:12:pp_instance|xor_op:b_out|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:12:pp_instance|xor_op:b_out|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:12:pp_instance|xor_op:b_out|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:12:pp_instance|xor_op:b_out|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:12:pp_instance|xor_op:b_out|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:12:pp_instance|xor_op:b_out|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:13:pp_instance
+Bin => xor_op:b_out.m
+Cin => xor_op:b_out.l
+Bout <= xor_op:b_out.n
+
+
+|ALU|preprocess:\gen_preprocess:13:pp_instance|xor_op:b_out
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|preprocess:\gen_preprocess:13:pp_instance|xor_op:b_out|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:13:pp_instance|xor_op:b_out|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:13:pp_instance|xor_op:b_out|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:13:pp_instance|xor_op:b_out|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:13:pp_instance|xor_op:b_out|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:13:pp_instance|xor_op:b_out|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:13:pp_instance|xor_op:b_out|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:13:pp_instance|xor_op:b_out|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:13:pp_instance|xor_op:b_out|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:13:pp_instance|xor_op:b_out|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:13:pp_instance|xor_op:b_out|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:13:pp_instance|xor_op:b_out|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:14:pp_instance
+Bin => xor_op:b_out.m
+Cin => xor_op:b_out.l
+Bout <= xor_op:b_out.n
+
+
+|ALU|preprocess:\gen_preprocess:14:pp_instance|xor_op:b_out
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|preprocess:\gen_preprocess:14:pp_instance|xor_op:b_out|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:14:pp_instance|xor_op:b_out|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:14:pp_instance|xor_op:b_out|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:14:pp_instance|xor_op:b_out|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:14:pp_instance|xor_op:b_out|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:14:pp_instance|xor_op:b_out|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:14:pp_instance|xor_op:b_out|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:14:pp_instance|xor_op:b_out|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:14:pp_instance|xor_op:b_out|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:14:pp_instance|xor_op:b_out|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:14:pp_instance|xor_op:b_out|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:14:pp_instance|xor_op:b_out|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:15:pp_instance
+Bin => xor_op:b_out.m
+Cin => xor_op:b_out.l
+Bout <= xor_op:b_out.n
+
+
+|ALU|preprocess:\gen_preprocess:15:pp_instance|xor_op:b_out
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|preprocess:\gen_preprocess:15:pp_instance|xor_op:b_out|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:15:pp_instance|xor_op:b_out|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:15:pp_instance|xor_op:b_out|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:15:pp_instance|xor_op:b_out|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:15:pp_instance|xor_op:b_out|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:15:pp_instance|xor_op:b_out|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:15:pp_instance|xor_op:b_out|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:15:pp_instance|xor_op:b_out|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:15:pp_instance|xor_op:b_out|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:15:pp_instance|xor_op:b_out|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|preprocess:\gen_preprocess:15:pp_instance|xor_op:b_out|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|preprocess:\gen_preprocess:15:pp_instance|xor_op:b_out|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:0:ha_instance
+a => xor_op:p0.l
+a => and_op:g0.x
+b => xor_op:p0.m
+b => and_op:g0.y
+p <= xor_op:p0.n
+g <= and_op:g0.z
+
+
+|ALU|HalfAdder:\gen_diamond:0:ha_instance|xor_op:p0
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|HalfAdder:\gen_diamond:0:ha_instance|xor_op:p0|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:0:ha_instance|xor_op:p0|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:0:ha_instance|xor_op:p0|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:0:ha_instance|xor_op:p0|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:0:ha_instance|xor_op:p0|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:0:ha_instance|xor_op:p0|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:0:ha_instance|xor_op:p0|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:0:ha_instance|xor_op:p0|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:0:ha_instance|xor_op:p0|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:0:ha_instance|xor_op:p0|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:0:ha_instance|xor_op:p0|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:0:ha_instance|xor_op:p0|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:0:ha_instance|and_op:g0
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:1:ha_instance
+a => xor_op:p0.l
+a => and_op:g0.x
+b => xor_op:p0.m
+b => and_op:g0.y
+p <= xor_op:p0.n
+g <= and_op:g0.z
+
+
+|ALU|HalfAdder:\gen_diamond:1:ha_instance|xor_op:p0
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|HalfAdder:\gen_diamond:1:ha_instance|xor_op:p0|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:1:ha_instance|xor_op:p0|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:1:ha_instance|xor_op:p0|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:1:ha_instance|xor_op:p0|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:1:ha_instance|xor_op:p0|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:1:ha_instance|xor_op:p0|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:1:ha_instance|xor_op:p0|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:1:ha_instance|xor_op:p0|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:1:ha_instance|xor_op:p0|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:1:ha_instance|xor_op:p0|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:1:ha_instance|xor_op:p0|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:1:ha_instance|xor_op:p0|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:1:ha_instance|and_op:g0
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:2:ha_instance
+a => xor_op:p0.l
+a => and_op:g0.x
+b => xor_op:p0.m
+b => and_op:g0.y
+p <= xor_op:p0.n
+g <= and_op:g0.z
+
+
+|ALU|HalfAdder:\gen_diamond:2:ha_instance|xor_op:p0
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|HalfAdder:\gen_diamond:2:ha_instance|xor_op:p0|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:2:ha_instance|xor_op:p0|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:2:ha_instance|xor_op:p0|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:2:ha_instance|xor_op:p0|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:2:ha_instance|xor_op:p0|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:2:ha_instance|xor_op:p0|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:2:ha_instance|xor_op:p0|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:2:ha_instance|xor_op:p0|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:2:ha_instance|xor_op:p0|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:2:ha_instance|xor_op:p0|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:2:ha_instance|xor_op:p0|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:2:ha_instance|xor_op:p0|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:2:ha_instance|and_op:g0
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:3:ha_instance
+a => xor_op:p0.l
+a => and_op:g0.x
+b => xor_op:p0.m
+b => and_op:g0.y
+p <= xor_op:p0.n
+g <= and_op:g0.z
+
+
+|ALU|HalfAdder:\gen_diamond:3:ha_instance|xor_op:p0
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|HalfAdder:\gen_diamond:3:ha_instance|xor_op:p0|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:3:ha_instance|xor_op:p0|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:3:ha_instance|xor_op:p0|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:3:ha_instance|xor_op:p0|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:3:ha_instance|xor_op:p0|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:3:ha_instance|xor_op:p0|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:3:ha_instance|xor_op:p0|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:3:ha_instance|xor_op:p0|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:3:ha_instance|xor_op:p0|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:3:ha_instance|xor_op:p0|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:3:ha_instance|xor_op:p0|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:3:ha_instance|xor_op:p0|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:3:ha_instance|and_op:g0
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:4:ha_instance
+a => xor_op:p0.l
+a => and_op:g0.x
+b => xor_op:p0.m
+b => and_op:g0.y
+p <= xor_op:p0.n
+g <= and_op:g0.z
+
+
+|ALU|HalfAdder:\gen_diamond:4:ha_instance|xor_op:p0
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|HalfAdder:\gen_diamond:4:ha_instance|xor_op:p0|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:4:ha_instance|xor_op:p0|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:4:ha_instance|xor_op:p0|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:4:ha_instance|xor_op:p0|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:4:ha_instance|xor_op:p0|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:4:ha_instance|xor_op:p0|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:4:ha_instance|xor_op:p0|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:4:ha_instance|xor_op:p0|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:4:ha_instance|xor_op:p0|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:4:ha_instance|xor_op:p0|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:4:ha_instance|xor_op:p0|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:4:ha_instance|xor_op:p0|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:4:ha_instance|and_op:g0
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:5:ha_instance
+a => xor_op:p0.l
+a => and_op:g0.x
+b => xor_op:p0.m
+b => and_op:g0.y
+p <= xor_op:p0.n
+g <= and_op:g0.z
+
+
+|ALU|HalfAdder:\gen_diamond:5:ha_instance|xor_op:p0
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|HalfAdder:\gen_diamond:5:ha_instance|xor_op:p0|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:5:ha_instance|xor_op:p0|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:5:ha_instance|xor_op:p0|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:5:ha_instance|xor_op:p0|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:5:ha_instance|xor_op:p0|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:5:ha_instance|xor_op:p0|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:5:ha_instance|xor_op:p0|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:5:ha_instance|xor_op:p0|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:5:ha_instance|xor_op:p0|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:5:ha_instance|xor_op:p0|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:5:ha_instance|xor_op:p0|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:5:ha_instance|xor_op:p0|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:5:ha_instance|and_op:g0
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:6:ha_instance
+a => xor_op:p0.l
+a => and_op:g0.x
+b => xor_op:p0.m
+b => and_op:g0.y
+p <= xor_op:p0.n
+g <= and_op:g0.z
+
+
+|ALU|HalfAdder:\gen_diamond:6:ha_instance|xor_op:p0
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|HalfAdder:\gen_diamond:6:ha_instance|xor_op:p0|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:6:ha_instance|xor_op:p0|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:6:ha_instance|xor_op:p0|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:6:ha_instance|xor_op:p0|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:6:ha_instance|xor_op:p0|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:6:ha_instance|xor_op:p0|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:6:ha_instance|xor_op:p0|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:6:ha_instance|xor_op:p0|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:6:ha_instance|xor_op:p0|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:6:ha_instance|xor_op:p0|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:6:ha_instance|xor_op:p0|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:6:ha_instance|xor_op:p0|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:6:ha_instance|and_op:g0
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:7:ha_instance
+a => xor_op:p0.l
+a => and_op:g0.x
+b => xor_op:p0.m
+b => and_op:g0.y
+p <= xor_op:p0.n
+g <= and_op:g0.z
+
+
+|ALU|HalfAdder:\gen_diamond:7:ha_instance|xor_op:p0
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|HalfAdder:\gen_diamond:7:ha_instance|xor_op:p0|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:7:ha_instance|xor_op:p0|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:7:ha_instance|xor_op:p0|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:7:ha_instance|xor_op:p0|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:7:ha_instance|xor_op:p0|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:7:ha_instance|xor_op:p0|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:7:ha_instance|xor_op:p0|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:7:ha_instance|xor_op:p0|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:7:ha_instance|xor_op:p0|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:7:ha_instance|xor_op:p0|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:7:ha_instance|xor_op:p0|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:7:ha_instance|xor_op:p0|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:7:ha_instance|and_op:g0
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:8:ha_instance
+a => xor_op:p0.l
+a => and_op:g0.x
+b => xor_op:p0.m
+b => and_op:g0.y
+p <= xor_op:p0.n
+g <= and_op:g0.z
+
+
+|ALU|HalfAdder:\gen_diamond:8:ha_instance|xor_op:p0
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|HalfAdder:\gen_diamond:8:ha_instance|xor_op:p0|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:8:ha_instance|xor_op:p0|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:8:ha_instance|xor_op:p0|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:8:ha_instance|xor_op:p0|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:8:ha_instance|xor_op:p0|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:8:ha_instance|xor_op:p0|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:8:ha_instance|xor_op:p0|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:8:ha_instance|xor_op:p0|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:8:ha_instance|xor_op:p0|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:8:ha_instance|xor_op:p0|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:8:ha_instance|xor_op:p0|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:8:ha_instance|xor_op:p0|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:8:ha_instance|and_op:g0
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:9:ha_instance
+a => xor_op:p0.l
+a => and_op:g0.x
+b => xor_op:p0.m
+b => and_op:g0.y
+p <= xor_op:p0.n
+g <= and_op:g0.z
+
+
+|ALU|HalfAdder:\gen_diamond:9:ha_instance|xor_op:p0
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|HalfAdder:\gen_diamond:9:ha_instance|xor_op:p0|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:9:ha_instance|xor_op:p0|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:9:ha_instance|xor_op:p0|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:9:ha_instance|xor_op:p0|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:9:ha_instance|xor_op:p0|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:9:ha_instance|xor_op:p0|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:9:ha_instance|xor_op:p0|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:9:ha_instance|xor_op:p0|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:9:ha_instance|xor_op:p0|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:9:ha_instance|xor_op:p0|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:9:ha_instance|xor_op:p0|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:9:ha_instance|xor_op:p0|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:9:ha_instance|and_op:g0
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:10:ha_instance
+a => xor_op:p0.l
+a => and_op:g0.x
+b => xor_op:p0.m
+b => and_op:g0.y
+p <= xor_op:p0.n
+g <= and_op:g0.z
+
+
+|ALU|HalfAdder:\gen_diamond:10:ha_instance|xor_op:p0
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|HalfAdder:\gen_diamond:10:ha_instance|xor_op:p0|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:10:ha_instance|xor_op:p0|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:10:ha_instance|xor_op:p0|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:10:ha_instance|xor_op:p0|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:10:ha_instance|xor_op:p0|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:10:ha_instance|xor_op:p0|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:10:ha_instance|xor_op:p0|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:10:ha_instance|xor_op:p0|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:10:ha_instance|xor_op:p0|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:10:ha_instance|xor_op:p0|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:10:ha_instance|xor_op:p0|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:10:ha_instance|xor_op:p0|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:10:ha_instance|and_op:g0
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:11:ha_instance
+a => xor_op:p0.l
+a => and_op:g0.x
+b => xor_op:p0.m
+b => and_op:g0.y
+p <= xor_op:p0.n
+g <= and_op:g0.z
+
+
+|ALU|HalfAdder:\gen_diamond:11:ha_instance|xor_op:p0
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|HalfAdder:\gen_diamond:11:ha_instance|xor_op:p0|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:11:ha_instance|xor_op:p0|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:11:ha_instance|xor_op:p0|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:11:ha_instance|xor_op:p0|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:11:ha_instance|xor_op:p0|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:11:ha_instance|xor_op:p0|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:11:ha_instance|xor_op:p0|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:11:ha_instance|xor_op:p0|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:11:ha_instance|xor_op:p0|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:11:ha_instance|xor_op:p0|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:11:ha_instance|xor_op:p0|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:11:ha_instance|xor_op:p0|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:11:ha_instance|and_op:g0
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:12:ha_instance
+a => xor_op:p0.l
+a => and_op:g0.x
+b => xor_op:p0.m
+b => and_op:g0.y
+p <= xor_op:p0.n
+g <= and_op:g0.z
+
+
+|ALU|HalfAdder:\gen_diamond:12:ha_instance|xor_op:p0
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|HalfAdder:\gen_diamond:12:ha_instance|xor_op:p0|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:12:ha_instance|xor_op:p0|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:12:ha_instance|xor_op:p0|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:12:ha_instance|xor_op:p0|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:12:ha_instance|xor_op:p0|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:12:ha_instance|xor_op:p0|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:12:ha_instance|xor_op:p0|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:12:ha_instance|xor_op:p0|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:12:ha_instance|xor_op:p0|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:12:ha_instance|xor_op:p0|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:12:ha_instance|xor_op:p0|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:12:ha_instance|xor_op:p0|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:12:ha_instance|and_op:g0
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:13:ha_instance
+a => xor_op:p0.l
+a => and_op:g0.x
+b => xor_op:p0.m
+b => and_op:g0.y
+p <= xor_op:p0.n
+g <= and_op:g0.z
+
+
+|ALU|HalfAdder:\gen_diamond:13:ha_instance|xor_op:p0
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|HalfAdder:\gen_diamond:13:ha_instance|xor_op:p0|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:13:ha_instance|xor_op:p0|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:13:ha_instance|xor_op:p0|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:13:ha_instance|xor_op:p0|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:13:ha_instance|xor_op:p0|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:13:ha_instance|xor_op:p0|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:13:ha_instance|xor_op:p0|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:13:ha_instance|xor_op:p0|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:13:ha_instance|xor_op:p0|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:13:ha_instance|xor_op:p0|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:13:ha_instance|xor_op:p0|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:13:ha_instance|xor_op:p0|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:13:ha_instance|and_op:g0
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:14:ha_instance
+a => xor_op:p0.l
+a => and_op:g0.x
+b => xor_op:p0.m
+b => and_op:g0.y
+p <= xor_op:p0.n
+g <= and_op:g0.z
+
+
+|ALU|HalfAdder:\gen_diamond:14:ha_instance|xor_op:p0
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|HalfAdder:\gen_diamond:14:ha_instance|xor_op:p0|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:14:ha_instance|xor_op:p0|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:14:ha_instance|xor_op:p0|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:14:ha_instance|xor_op:p0|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:14:ha_instance|xor_op:p0|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:14:ha_instance|xor_op:p0|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:14:ha_instance|xor_op:p0|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:14:ha_instance|xor_op:p0|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:14:ha_instance|xor_op:p0|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:14:ha_instance|xor_op:p0|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:14:ha_instance|xor_op:p0|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:14:ha_instance|xor_op:p0|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:14:ha_instance|and_op:g0
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:15:ha_instance
+a => xor_op:p0.l
+a => and_op:g0.x
+b => xor_op:p0.m
+b => and_op:g0.y
+p <= xor_op:p0.n
+g <= and_op:g0.z
+
+
+|ALU|HalfAdder:\gen_diamond:15:ha_instance|xor_op:p0
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|HalfAdder:\gen_diamond:15:ha_instance|xor_op:p0|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:15:ha_instance|xor_op:p0|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:15:ha_instance|xor_op:p0|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:15:ha_instance|xor_op:p0|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:15:ha_instance|xor_op:p0|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:15:ha_instance|xor_op:p0|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:15:ha_instance|xor_op:p0|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:15:ha_instance|xor_op:p0|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:15:ha_instance|xor_op:p0|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:15:ha_instance|xor_op:p0|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|HalfAdder:\gen_diamond:15:ha_instance|xor_op:p0|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:15:ha_instance|xor_op:p0|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|HalfAdder:\gen_diamond:15:ha_instance|and_op:g0
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:1:pc_instance1
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level1_prefix:1:pc_instance1|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:1:pc_instance1|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:1:pc_instance1|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:2:pc_instance1
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level1_prefix:2:pc_instance1|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:2:pc_instance1|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:2:pc_instance1|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:3:pc_instance1
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level1_prefix:3:pc_instance1|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:3:pc_instance1|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:3:pc_instance1|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:4:pc_instance1
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level1_prefix:4:pc_instance1|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:4:pc_instance1|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:4:pc_instance1|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:5:pc_instance1
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level1_prefix:5:pc_instance1|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:5:pc_instance1|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:5:pc_instance1|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:6:pc_instance1
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level1_prefix:6:pc_instance1|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:6:pc_instance1|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:6:pc_instance1|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:7:pc_instance1
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level1_prefix:7:pc_instance1|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:7:pc_instance1|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:7:pc_instance1|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:8:pc_instance1
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level1_prefix:8:pc_instance1|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:8:pc_instance1|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:8:pc_instance1|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:9:pc_instance1
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level1_prefix:9:pc_instance1|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:9:pc_instance1|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:9:pc_instance1|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:10:pc_instance1
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level1_prefix:10:pc_instance1|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:10:pc_instance1|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:10:pc_instance1|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:11:pc_instance1
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level1_prefix:11:pc_instance1|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:11:pc_instance1|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:11:pc_instance1|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:12:pc_instance1
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level1_prefix:12:pc_instance1|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:12:pc_instance1|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:12:pc_instance1|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:13:pc_instance1
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level1_prefix:13:pc_instance1|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:13:pc_instance1|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:13:pc_instance1|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:14:pc_instance1
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level1_prefix:14:pc_instance1|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:14:pc_instance1|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:14:pc_instance1|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:15:pc_instance1
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level1_prefix:15:pc_instance1|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:15:pc_instance1|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level1_prefix:15:pc_instance1|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:2:pc_instance2
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level2_prefix:2:pc_instance2|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:2:pc_instance2|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:2:pc_instance2|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:3:pc_instance2
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level2_prefix:3:pc_instance2|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:3:pc_instance2|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:3:pc_instance2|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:4:pc_instance2
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level2_prefix:4:pc_instance2|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:4:pc_instance2|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:4:pc_instance2|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:5:pc_instance2
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level2_prefix:5:pc_instance2|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:5:pc_instance2|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:5:pc_instance2|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:6:pc_instance2
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level2_prefix:6:pc_instance2|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:6:pc_instance2|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:6:pc_instance2|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:7:pc_instance2
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level2_prefix:7:pc_instance2|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:7:pc_instance2|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:7:pc_instance2|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:8:pc_instance2
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level2_prefix:8:pc_instance2|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:8:pc_instance2|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:8:pc_instance2|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:9:pc_instance2
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level2_prefix:9:pc_instance2|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:9:pc_instance2|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:9:pc_instance2|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:10:pc_instance2
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level2_prefix:10:pc_instance2|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:10:pc_instance2|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:10:pc_instance2|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:11:pc_instance2
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level2_prefix:11:pc_instance2|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:11:pc_instance2|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:11:pc_instance2|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:12:pc_instance2
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level2_prefix:12:pc_instance2|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:12:pc_instance2|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:12:pc_instance2|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:13:pc_instance2
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level2_prefix:13:pc_instance2|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:13:pc_instance2|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:13:pc_instance2|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:14:pc_instance2
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level2_prefix:14:pc_instance2|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:14:pc_instance2|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:14:pc_instance2|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:15:pc_instance2
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level2_prefix:15:pc_instance2|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:15:pc_instance2|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level2_prefix:15:pc_instance2|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:4:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level3_prefix:4:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:4:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:4:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:5:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level3_prefix:5:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:5:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:5:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:6:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level3_prefix:6:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:6:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:6:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:7:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level3_prefix:7:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:7:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:7:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:8:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level3_prefix:8:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:8:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:8:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:9:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level3_prefix:9:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:9:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:9:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:10:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level3_prefix:10:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:10:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:10:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:11:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level3_prefix:11:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:11:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:11:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:12:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level3_prefix:12:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:12:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:12:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:13:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level3_prefix:13:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:13:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:13:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:14:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level3_prefix:14:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:14:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:14:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:15:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level3_prefix:15:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:15:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level3_prefix:15:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:8:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level4_prefix:8:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:8:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:8:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:9:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level4_prefix:9:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:9:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:9:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:10:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level4_prefix:10:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:10:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:10:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:11:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level4_prefix:11:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:11:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:11:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:12:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level4_prefix:12:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:12:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:12:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:13:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level4_prefix:13:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:13:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:13:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:14:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level4_prefix:14:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:14:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:14:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:15:pc_instance3
+Pi => and_op:P_out.x
+Pi => and_op:Pi_Giprev.x
+Gi => or_op:Gout.x
+Pi_prev => and_op:P_out.y
+Gi_prev => and_op:Pi_Giprev.y
+P <= and_op:P_out.z
+G <= or_op:Gout.z
+
+
+|ALU|prefix_computation:\level4_prefix:15:pc_instance3|and_op:P_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:15:pc_instance3|and_op:Pi_Giprev
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|prefix_computation:\level4_prefix:15:pc_instance3|or_op:Gout
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:postprocess0
+S1 => and_op:controlxor.x
+S1 => and_op:controlnand.x
+S1 => not_op:s1bar.x
+S0 => and_op:controlxor.y
+S0 => not_op:S0bar.x
+P4 => and_op:P_Cin.x
+G4 => or_op:Cnext.x
+p => and_op:muxxor.y
+p => xor_op:sum_calc.l
+g => not_op:notg.x
+Cin => and_op:P_Cin.y
+Ci_prev => xor_op:sum_calc.m
+C_next <= or_op:Cnext.z
+output <= or_3:output_unit.v
+
+
+|ALU|postprocess:postprocess0|and_op:controlxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:postprocess0|and_op:muxxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:postprocess0|not_op:S0bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:postprocess0|and_op:controlnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:postprocess0|not_op:notg
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:postprocess0|and_op:muxnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:postprocess0|not_op:s1bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:postprocess0|xor_op:sum_calc
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|postprocess:postprocess0|xor_op:sum_calc|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:postprocess0|xor_op:sum_calc|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:postprocess0|xor_op:sum_calc|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:postprocess0|xor_op:sum_calc|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:postprocess0|xor_op:sum_calc|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:postprocess0|xor_op:sum_calc|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:postprocess0|xor_op:sum_calc|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:postprocess0|xor_op:sum_calc|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:postprocess0|xor_op:sum_calc|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:postprocess0|xor_op:sum_calc|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:postprocess0|xor_op:sum_calc|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:postprocess0|xor_op:sum_calc|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:postprocess0|and_op:summed
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:postprocess0|and_op:P_Cin
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:postprocess0|or_op:Cnext
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:postprocess0|or_3:output_unit
+s => v.IN0
+t => v.IN1
+u => v.IN1
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance
+S1 => and_op:controlxor.x
+S1 => and_op:controlnand.x
+S1 => not_op:s1bar.x
+S0 => and_op:controlxor.y
+S0 => not_op:S0bar.x
+P4 => and_op:P_Cin.x
+G4 => or_op:Cnext.x
+p => and_op:muxxor.y
+p => xor_op:sum_calc.l
+g => not_op:notg.x
+Cin => and_op:P_Cin.y
+Ci_prev => xor_op:sum_calc.m
+C_next <= or_op:Cnext.z
+output <= or_3:output_unit.v
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|and_op:controlxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|and_op:muxxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|not_op:S0bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|and_op:controlnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|not_op:notg
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|and_op:muxnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|not_op:s1bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|xor_op:sum_calc
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|xor_op:sum_calc|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|xor_op:sum_calc|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|xor_op:sum_calc|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|xor_op:sum_calc|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|xor_op:sum_calc|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|xor_op:sum_calc|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|xor_op:sum_calc|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|xor_op:sum_calc|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|xor_op:sum_calc|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|xor_op:sum_calc|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|xor_op:sum_calc|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|xor_op:sum_calc|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|and_op:summed
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|and_op:P_Cin
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|or_op:Cnext
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:1:pop_instance|or_3:output_unit
+s => v.IN0
+t => v.IN1
+u => v.IN1
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance
+S1 => and_op:controlxor.x
+S1 => and_op:controlnand.x
+S1 => not_op:s1bar.x
+S0 => and_op:controlxor.y
+S0 => not_op:S0bar.x
+P4 => and_op:P_Cin.x
+G4 => or_op:Cnext.x
+p => and_op:muxxor.y
+p => xor_op:sum_calc.l
+g => not_op:notg.x
+Cin => and_op:P_Cin.y
+Ci_prev => xor_op:sum_calc.m
+C_next <= or_op:Cnext.z
+output <= or_3:output_unit.v
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|and_op:controlxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|and_op:muxxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|not_op:S0bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|and_op:controlnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|not_op:notg
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|and_op:muxnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|not_op:s1bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|xor_op:sum_calc
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|xor_op:sum_calc|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|xor_op:sum_calc|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|xor_op:sum_calc|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|xor_op:sum_calc|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|xor_op:sum_calc|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|xor_op:sum_calc|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|xor_op:sum_calc|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|xor_op:sum_calc|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|xor_op:sum_calc|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|xor_op:sum_calc|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|xor_op:sum_calc|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|xor_op:sum_calc|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|and_op:summed
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|and_op:P_Cin
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|or_op:Cnext
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:2:pop_instance|or_3:output_unit
+s => v.IN0
+t => v.IN1
+u => v.IN1
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance
+S1 => and_op:controlxor.x
+S1 => and_op:controlnand.x
+S1 => not_op:s1bar.x
+S0 => and_op:controlxor.y
+S0 => not_op:S0bar.x
+P4 => and_op:P_Cin.x
+G4 => or_op:Cnext.x
+p => and_op:muxxor.y
+p => xor_op:sum_calc.l
+g => not_op:notg.x
+Cin => and_op:P_Cin.y
+Ci_prev => xor_op:sum_calc.m
+C_next <= or_op:Cnext.z
+output <= or_3:output_unit.v
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|and_op:controlxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|and_op:muxxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|not_op:S0bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|and_op:controlnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|not_op:notg
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|and_op:muxnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|not_op:s1bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|xor_op:sum_calc
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|xor_op:sum_calc|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|xor_op:sum_calc|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|xor_op:sum_calc|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|xor_op:sum_calc|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|xor_op:sum_calc|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|xor_op:sum_calc|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|xor_op:sum_calc|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|xor_op:sum_calc|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|xor_op:sum_calc|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|xor_op:sum_calc|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|xor_op:sum_calc|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|xor_op:sum_calc|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|and_op:summed
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|and_op:P_Cin
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|or_op:Cnext
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:3:pop_instance|or_3:output_unit
+s => v.IN0
+t => v.IN1
+u => v.IN1
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance
+S1 => and_op:controlxor.x
+S1 => and_op:controlnand.x
+S1 => not_op:s1bar.x
+S0 => and_op:controlxor.y
+S0 => not_op:S0bar.x
+P4 => and_op:P_Cin.x
+G4 => or_op:Cnext.x
+p => and_op:muxxor.y
+p => xor_op:sum_calc.l
+g => not_op:notg.x
+Cin => and_op:P_Cin.y
+Ci_prev => xor_op:sum_calc.m
+C_next <= or_op:Cnext.z
+output <= or_3:output_unit.v
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|and_op:controlxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|and_op:muxxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|not_op:S0bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|and_op:controlnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|not_op:notg
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|and_op:muxnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|not_op:s1bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|xor_op:sum_calc
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|xor_op:sum_calc|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|xor_op:sum_calc|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|xor_op:sum_calc|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|xor_op:sum_calc|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|xor_op:sum_calc|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|xor_op:sum_calc|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|xor_op:sum_calc|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|xor_op:sum_calc|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|xor_op:sum_calc|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|xor_op:sum_calc|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|xor_op:sum_calc|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|xor_op:sum_calc|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|and_op:summed
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|and_op:P_Cin
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|or_op:Cnext
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:4:pop_instance|or_3:output_unit
+s => v.IN0
+t => v.IN1
+u => v.IN1
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance
+S1 => and_op:controlxor.x
+S1 => and_op:controlnand.x
+S1 => not_op:s1bar.x
+S0 => and_op:controlxor.y
+S0 => not_op:S0bar.x
+P4 => and_op:P_Cin.x
+G4 => or_op:Cnext.x
+p => and_op:muxxor.y
+p => xor_op:sum_calc.l
+g => not_op:notg.x
+Cin => and_op:P_Cin.y
+Ci_prev => xor_op:sum_calc.m
+C_next <= or_op:Cnext.z
+output <= or_3:output_unit.v
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|and_op:controlxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|and_op:muxxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|not_op:S0bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|and_op:controlnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|not_op:notg
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|and_op:muxnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|not_op:s1bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|xor_op:sum_calc
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|xor_op:sum_calc|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|xor_op:sum_calc|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|xor_op:sum_calc|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|xor_op:sum_calc|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|xor_op:sum_calc|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|xor_op:sum_calc|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|xor_op:sum_calc|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|xor_op:sum_calc|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|xor_op:sum_calc|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|xor_op:sum_calc|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|xor_op:sum_calc|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|xor_op:sum_calc|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|and_op:summed
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|and_op:P_Cin
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|or_op:Cnext
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:5:pop_instance|or_3:output_unit
+s => v.IN0
+t => v.IN1
+u => v.IN1
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance
+S1 => and_op:controlxor.x
+S1 => and_op:controlnand.x
+S1 => not_op:s1bar.x
+S0 => and_op:controlxor.y
+S0 => not_op:S0bar.x
+P4 => and_op:P_Cin.x
+G4 => or_op:Cnext.x
+p => and_op:muxxor.y
+p => xor_op:sum_calc.l
+g => not_op:notg.x
+Cin => and_op:P_Cin.y
+Ci_prev => xor_op:sum_calc.m
+C_next <= or_op:Cnext.z
+output <= or_3:output_unit.v
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|and_op:controlxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|and_op:muxxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|not_op:S0bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|and_op:controlnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|not_op:notg
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|and_op:muxnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|not_op:s1bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|xor_op:sum_calc
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|xor_op:sum_calc|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|xor_op:sum_calc|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|xor_op:sum_calc|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|xor_op:sum_calc|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|xor_op:sum_calc|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|xor_op:sum_calc|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|xor_op:sum_calc|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|xor_op:sum_calc|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|xor_op:sum_calc|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|xor_op:sum_calc|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|xor_op:sum_calc|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|xor_op:sum_calc|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|and_op:summed
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|and_op:P_Cin
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|or_op:Cnext
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:6:pop_instance|or_3:output_unit
+s => v.IN0
+t => v.IN1
+u => v.IN1
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance
+S1 => and_op:controlxor.x
+S1 => and_op:controlnand.x
+S1 => not_op:s1bar.x
+S0 => and_op:controlxor.y
+S0 => not_op:S0bar.x
+P4 => and_op:P_Cin.x
+G4 => or_op:Cnext.x
+p => and_op:muxxor.y
+p => xor_op:sum_calc.l
+g => not_op:notg.x
+Cin => and_op:P_Cin.y
+Ci_prev => xor_op:sum_calc.m
+C_next <= or_op:Cnext.z
+output <= or_3:output_unit.v
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|and_op:controlxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|and_op:muxxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|not_op:S0bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|and_op:controlnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|not_op:notg
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|and_op:muxnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|not_op:s1bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|xor_op:sum_calc
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|xor_op:sum_calc|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|xor_op:sum_calc|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|xor_op:sum_calc|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|xor_op:sum_calc|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|xor_op:sum_calc|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|xor_op:sum_calc|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|xor_op:sum_calc|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|xor_op:sum_calc|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|xor_op:sum_calc|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|xor_op:sum_calc|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|xor_op:sum_calc|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|xor_op:sum_calc|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|and_op:summed
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|and_op:P_Cin
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|or_op:Cnext
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:7:pop_instance|or_3:output_unit
+s => v.IN0
+t => v.IN1
+u => v.IN1
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance
+S1 => and_op:controlxor.x
+S1 => and_op:controlnand.x
+S1 => not_op:s1bar.x
+S0 => and_op:controlxor.y
+S0 => not_op:S0bar.x
+P4 => and_op:P_Cin.x
+G4 => or_op:Cnext.x
+p => and_op:muxxor.y
+p => xor_op:sum_calc.l
+g => not_op:notg.x
+Cin => and_op:P_Cin.y
+Ci_prev => xor_op:sum_calc.m
+C_next <= or_op:Cnext.z
+output <= or_3:output_unit.v
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|and_op:controlxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|and_op:muxxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|not_op:S0bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|and_op:controlnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|not_op:notg
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|and_op:muxnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|not_op:s1bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|xor_op:sum_calc
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|xor_op:sum_calc|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|xor_op:sum_calc|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|xor_op:sum_calc|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|xor_op:sum_calc|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|xor_op:sum_calc|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|xor_op:sum_calc|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|xor_op:sum_calc|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|xor_op:sum_calc|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|xor_op:sum_calc|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|xor_op:sum_calc|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|xor_op:sum_calc|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|xor_op:sum_calc|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|and_op:summed
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|and_op:P_Cin
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|or_op:Cnext
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:8:pop_instance|or_3:output_unit
+s => v.IN0
+t => v.IN1
+u => v.IN1
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance
+S1 => and_op:controlxor.x
+S1 => and_op:controlnand.x
+S1 => not_op:s1bar.x
+S0 => and_op:controlxor.y
+S0 => not_op:S0bar.x
+P4 => and_op:P_Cin.x
+G4 => or_op:Cnext.x
+p => and_op:muxxor.y
+p => xor_op:sum_calc.l
+g => not_op:notg.x
+Cin => and_op:P_Cin.y
+Ci_prev => xor_op:sum_calc.m
+C_next <= or_op:Cnext.z
+output <= or_3:output_unit.v
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|and_op:controlxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|and_op:muxxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|not_op:S0bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|and_op:controlnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|not_op:notg
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|and_op:muxnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|not_op:s1bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|xor_op:sum_calc
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|xor_op:sum_calc|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|xor_op:sum_calc|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|xor_op:sum_calc|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|xor_op:sum_calc|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|xor_op:sum_calc|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|xor_op:sum_calc|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|xor_op:sum_calc|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|xor_op:sum_calc|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|xor_op:sum_calc|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|xor_op:sum_calc|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|xor_op:sum_calc|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|xor_op:sum_calc|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|and_op:summed
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|and_op:P_Cin
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|or_op:Cnext
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:9:pop_instance|or_3:output_unit
+s => v.IN0
+t => v.IN1
+u => v.IN1
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance
+S1 => and_op:controlxor.x
+S1 => and_op:controlnand.x
+S1 => not_op:s1bar.x
+S0 => and_op:controlxor.y
+S0 => not_op:S0bar.x
+P4 => and_op:P_Cin.x
+G4 => or_op:Cnext.x
+p => and_op:muxxor.y
+p => xor_op:sum_calc.l
+g => not_op:notg.x
+Cin => and_op:P_Cin.y
+Ci_prev => xor_op:sum_calc.m
+C_next <= or_op:Cnext.z
+output <= or_3:output_unit.v
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|and_op:controlxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|and_op:muxxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|not_op:S0bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|and_op:controlnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|not_op:notg
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|and_op:muxnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|not_op:s1bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|xor_op:sum_calc
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|xor_op:sum_calc|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|xor_op:sum_calc|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|xor_op:sum_calc|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|xor_op:sum_calc|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|xor_op:sum_calc|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|xor_op:sum_calc|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|xor_op:sum_calc|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|xor_op:sum_calc|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|xor_op:sum_calc|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|xor_op:sum_calc|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|xor_op:sum_calc|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|xor_op:sum_calc|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|and_op:summed
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|and_op:P_Cin
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|or_op:Cnext
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:10:pop_instance|or_3:output_unit
+s => v.IN0
+t => v.IN1
+u => v.IN1
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance
+S1 => and_op:controlxor.x
+S1 => and_op:controlnand.x
+S1 => not_op:s1bar.x
+S0 => and_op:controlxor.y
+S0 => not_op:S0bar.x
+P4 => and_op:P_Cin.x
+G4 => or_op:Cnext.x
+p => and_op:muxxor.y
+p => xor_op:sum_calc.l
+g => not_op:notg.x
+Cin => and_op:P_Cin.y
+Ci_prev => xor_op:sum_calc.m
+C_next <= or_op:Cnext.z
+output <= or_3:output_unit.v
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|and_op:controlxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|and_op:muxxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|not_op:S0bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|and_op:controlnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|not_op:notg
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|and_op:muxnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|not_op:s1bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|xor_op:sum_calc
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|xor_op:sum_calc|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|xor_op:sum_calc|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|xor_op:sum_calc|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|xor_op:sum_calc|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|xor_op:sum_calc|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|xor_op:sum_calc|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|xor_op:sum_calc|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|xor_op:sum_calc|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|xor_op:sum_calc|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|xor_op:sum_calc|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|xor_op:sum_calc|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|xor_op:sum_calc|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|and_op:summed
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|and_op:P_Cin
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|or_op:Cnext
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:11:pop_instance|or_3:output_unit
+s => v.IN0
+t => v.IN1
+u => v.IN1
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance
+S1 => and_op:controlxor.x
+S1 => and_op:controlnand.x
+S1 => not_op:s1bar.x
+S0 => and_op:controlxor.y
+S0 => not_op:S0bar.x
+P4 => and_op:P_Cin.x
+G4 => or_op:Cnext.x
+p => and_op:muxxor.y
+p => xor_op:sum_calc.l
+g => not_op:notg.x
+Cin => and_op:P_Cin.y
+Ci_prev => xor_op:sum_calc.m
+C_next <= or_op:Cnext.z
+output <= or_3:output_unit.v
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|and_op:controlxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|and_op:muxxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|not_op:S0bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|and_op:controlnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|not_op:notg
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|and_op:muxnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|not_op:s1bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|xor_op:sum_calc
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|xor_op:sum_calc|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|xor_op:sum_calc|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|xor_op:sum_calc|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|xor_op:sum_calc|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|xor_op:sum_calc|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|xor_op:sum_calc|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|xor_op:sum_calc|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|xor_op:sum_calc|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|xor_op:sum_calc|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|xor_op:sum_calc|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|xor_op:sum_calc|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|xor_op:sum_calc|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|and_op:summed
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|and_op:P_Cin
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|or_op:Cnext
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:12:pop_instance|or_3:output_unit
+s => v.IN0
+t => v.IN1
+u => v.IN1
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance
+S1 => and_op:controlxor.x
+S1 => and_op:controlnand.x
+S1 => not_op:s1bar.x
+S0 => and_op:controlxor.y
+S0 => not_op:S0bar.x
+P4 => and_op:P_Cin.x
+G4 => or_op:Cnext.x
+p => and_op:muxxor.y
+p => xor_op:sum_calc.l
+g => not_op:notg.x
+Cin => and_op:P_Cin.y
+Ci_prev => xor_op:sum_calc.m
+C_next <= or_op:Cnext.z
+output <= or_3:output_unit.v
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|and_op:controlxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|and_op:muxxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|not_op:S0bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|and_op:controlnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|not_op:notg
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|and_op:muxnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|not_op:s1bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|xor_op:sum_calc
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|xor_op:sum_calc|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|xor_op:sum_calc|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|xor_op:sum_calc|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|xor_op:sum_calc|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|xor_op:sum_calc|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|xor_op:sum_calc|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|xor_op:sum_calc|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|xor_op:sum_calc|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|xor_op:sum_calc|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|xor_op:sum_calc|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|xor_op:sum_calc|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|xor_op:sum_calc|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|and_op:summed
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|and_op:P_Cin
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|or_op:Cnext
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:13:pop_instance|or_3:output_unit
+s => v.IN0
+t => v.IN1
+u => v.IN1
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance
+S1 => and_op:controlxor.x
+S1 => and_op:controlnand.x
+S1 => not_op:s1bar.x
+S0 => and_op:controlxor.y
+S0 => not_op:S0bar.x
+P4 => and_op:P_Cin.x
+G4 => or_op:Cnext.x
+p => and_op:muxxor.y
+p => xor_op:sum_calc.l
+g => not_op:notg.x
+Cin => and_op:P_Cin.y
+Ci_prev => xor_op:sum_calc.m
+C_next <= or_op:Cnext.z
+output <= or_3:output_unit.v
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|and_op:controlxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|and_op:muxxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|not_op:S0bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|and_op:controlnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|not_op:notg
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|and_op:muxnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|not_op:s1bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|xor_op:sum_calc
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|xor_op:sum_calc|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|xor_op:sum_calc|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|xor_op:sum_calc|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|xor_op:sum_calc|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|xor_op:sum_calc|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|xor_op:sum_calc|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|xor_op:sum_calc|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|xor_op:sum_calc|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|xor_op:sum_calc|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|xor_op:sum_calc|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|xor_op:sum_calc|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|xor_op:sum_calc|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|and_op:summed
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|and_op:P_Cin
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|or_op:Cnext
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:14:pop_instance|or_3:output_unit
+s => v.IN0
+t => v.IN1
+u => v.IN1
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance
+S1 => and_op:controlxor.x
+S1 => and_op:controlnand.x
+S1 => not_op:s1bar.x
+S0 => and_op:controlxor.y
+S0 => not_op:S0bar.x
+P4 => and_op:P_Cin.x
+G4 => or_op:Cnext.x
+p => and_op:muxxor.y
+p => xor_op:sum_calc.l
+g => not_op:notg.x
+Cin => and_op:P_Cin.y
+Ci_prev => xor_op:sum_calc.m
+C_next <= or_op:Cnext.z
+output <= or_3:output_unit.v
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|and_op:controlxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|and_op:muxxor
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|not_op:S0bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|and_op:controlnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|not_op:notg
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|and_op:muxnand
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|not_op:s1bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|xor_op:sum_calc
+l => nand_op:e0.a
+l => nand_op:f0.a
+m => nand_op:e0.b
+m => nand_op:g0.a
+n <= nand_op:r0.c
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|xor_op:sum_calc|nand_op:e0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|xor_op:sum_calc|nand_op:e0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|xor_op:sum_calc|nand_op:e0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|xor_op:sum_calc|nand_op:f0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|xor_op:sum_calc|nand_op:f0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|xor_op:sum_calc|nand_op:f0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|xor_op:sum_calc|nand_op:g0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|xor_op:sum_calc|nand_op:g0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|xor_op:sum_calc|nand_op:g0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|xor_op:sum_calc|nand_op:r0
+a => and_op:ab.x
+b => and_op:ab.y
+c <= not_op:ab_bar.z
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|xor_op:sum_calc|nand_op:r0|and_op:ab
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|xor_op:sum_calc|nand_op:r0|not_op:ab_bar
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|and_op:summed
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|and_op:P_Cin
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|or_op:Cnext
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|postprocess:\gen_postprocess:15:pop_instance|or_3:output_unit
+s => v.IN0
+t => v.IN1
+u => v.IN1
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|and_op:Carry_out
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|nor_15:getting_z
+rout[0] => or_op:z_1.x
+rout[1] => or_op:z_1.y
+rout[2] => or_op:z_2.y
+rout[3] => or_op:z_3.y
+rout[4] => or_op:z_4.y
+rout[5] => or_op:z_5.y
+rout[6] => or_op:z_6.y
+rout[7] => or_op:z_7.y
+rout[8] => or_op:z_8.y
+rout[9] => or_op:z_9.y
+rout[10] => or_op:z_10.y
+rout[11] => or_op:z_11.y
+rout[12] => or_op:z_12.y
+rout[13] => or_op:z_13.y
+rout[14] => or_op:z_14.y
+rout[15] => or_op:z_15.y
+z <= not_op:z_final.z
+
+
+|ALU|nor_15:getting_z|or_op:z_1
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|nor_15:getting_z|or_op:z_2
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|nor_15:getting_z|or_op:z_3
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|nor_15:getting_z|or_op:z_4
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|nor_15:getting_z|or_op:z_5
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|nor_15:getting_z|or_op:z_6
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|nor_15:getting_z|or_op:z_7
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|nor_15:getting_z|or_op:z_8
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|nor_15:getting_z|or_op:z_9
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|nor_15:getting_z|or_op:z_10
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|nor_15:getting_z|or_op:z_11
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|nor_15:getting_z|or_op:z_12
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|nor_15:getting_z|or_op:z_13
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|nor_15:getting_z|or_op:z_14
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|nor_15:getting_z|or_op:z_15
+x => z.IN0
+y => z.IN1
+z <= z.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ALU|nor_15:getting_z|not_op:z_final
+x => z.DATAIN
+z <= x.DB_MAX_OUTPUT_PORT_TYPE
+
+

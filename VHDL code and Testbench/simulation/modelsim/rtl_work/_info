@@ -1,0 +1,492 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/simulation/modelsim
+Ealu
+Z1 w1607056485
+!i122 10
+R0
+Z2 8D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/ALU.vhd
+Z3 FD:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/ALU.vhd
+l0
+L1 1
+Vh>zRZ2A?iz=9z_XbOTCHQ2
+!s100 W>L6OONBdLT9SG2<a9]eB1
+Z4 OV;C;2020.1;71
+31
+Z5 !s110 1607074885
+!i10b 1
+Z6 !s108 1607074885.000000
+Z7 !s90 -reportprogress|300|-93|-work|work|D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/ALU.vhd|
+Z8 !s107 D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/ALU.vhd|
+!i113 1
+Z9 o-93 -work work
+Z10 tExplicit 1 CvgOpt 0
+Adesign
+DEx4 work 3 alu 0 22 h>zRZ2A?iz=9z_XbOTCHQ2
+!i122 10
+l45
+L11 147
+VaL?o16i:fL<SRm>U`g3C21
+!s100 6LESd:cfCS7z]eC75MP?k3
+R4
+31
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 1
+R9
+R10
+Eand_op
+Z11 w1607056501
+!i122 9
+R0
+Z12 8D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/and_op.vhd
+Z13 FD:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/and_op.vhd
+l0
+L1 1
+VSNP1DH1l5zggUML?R4F1?2
+!s100 ^Md4FDb^;>IF?9PEITGaV2
+R4
+31
+R5
+!i10b 1
+R6
+Z14 !s90 -reportprogress|300|-93|-work|work|D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/and_op.vhd|
+Z15 !s107 D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/and_op.vhd|
+!i113 1
+R9
+R10
+Adesign
+DEx4 work 6 and_op 0 22 SNP1DH1l5zggUML?R4F1?2
+!i122 9
+l6
+L5 4
+VERC?]Z48m0n7m3nI[L?@K3
+!s100 9<on?XHlzT@3o<JfPOaAR3
+R4
+31
+R5
+!i10b 1
+R6
+R14
+R15
+!i113 1
+R9
+R10
+Ehalfadder
+Z16 w1607056510
+!i122 8
+R0
+Z17 8D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/HalfAdder.vhd
+Z18 FD:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/HalfAdder.vhd
+l0
+L1 1
+VVT4EAhDCUbiiKEQB`RAlh3
+!s100 AZdC]?ANWLL;:emYhdkYT2
+R4
+31
+R5
+!i10b 1
+R6
+Z19 !s90 -reportprogress|300|-93|-work|work|D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/HalfAdder.vhd|
+Z20 !s107 D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/HalfAdder.vhd|
+!i113 1
+R9
+R10
+Astruct
+DEx4 work 9 halfadder 0 22 VT4EAhDCUbiiKEQB`RAlh3
+!i122 8
+l15
+L5 14
+VG6BSS?2`J1bh1aV<QSVHU0
+!s100 Y[k]?k=COB?UF1Z>?FNT:0
+R4
+31
+R5
+!i10b 1
+R6
+R19
+R20
+!i113 1
+R9
+R10
+Enand_op
+Z21 w1607056518
+!i122 7
+R0
+Z22 8D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/nand_op.vhd
+Z23 FD:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/nand_op.vhd
+l0
+L1 1
+ViX39814Inc2ODS]hnLWH81
+!s100 2G5DT4TJCYIkAWjd3:[CH1
+R4
+31
+R5
+!i10b 1
+R6
+Z24 !s90 -reportprogress|300|-93|-work|work|D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/nand_op.vhd|
+Z25 !s107 D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/nand_op.vhd|
+!i113 1
+R9
+R10
+Astruct
+DEx4 work 7 nand_op 0 22 iX39814Inc2ODS]hnLWH81
+!i122 7
+l16
+L5 15
+VhRCANiQzgVC7NUSOCRfn61
+!s100 26oF^@QfDkbi81iz17ROj3
+R4
+31
+R5
+!i10b 1
+R6
+R24
+R25
+!i113 1
+R9
+R10
+Enor_15
+Z26 w1607062188
+!i122 11
+R0
+Z27 8D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/nor_15.vhd
+Z28 FD:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/nor_15.vhd
+l0
+L1 1
+VoPSHk0O8AcnF9V3H[J=:53
+!s100 za`janEf44a7=H8cee^mB3
+R4
+31
+R5
+!i10b 1
+R6
+Z29 !s90 -reportprogress|300|-93|-work|work|D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/nor_15.vhd|
+Z30 !s107 D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/nor_15.vhd|
+!i113 1
+R9
+R10
+Adesign
+DEx4 work 6 nor_15 0 22 oPSHk0O8AcnF9V3H[J=:53
+!i122 11
+l20
+L6 34
+VIJ`74]C9M?kdW;n`jWkkC2
+!s100 KDbS?WmlZhd8@iJKL4oKf2
+R4
+31
+R5
+!i10b 1
+R6
+R29
+R30
+!i113 1
+R9
+R10
+Enot_op
+Z31 w1607056534
+!i122 6
+R0
+Z32 8D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/not_op.vhd
+Z33 FD:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/not_op.vhd
+l0
+L1 1
+Vc7XOQCB7iGiF:THAHJ[973
+!s100 G4Fa3R26:FCcb<R;d1lBi1
+R4
+31
+Z34 !s110 1607074884
+!i10b 1
+Z35 !s108 1607074884.000000
+Z36 !s90 -reportprogress|300|-93|-work|work|D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/not_op.vhd|
+Z37 !s107 D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/not_op.vhd|
+!i113 1
+R9
+R10
+Adesign
+DEx4 work 6 not_op 0 22 c7XOQCB7iGiF:THAHJ[973
+!i122 6
+l6
+L5 4
+V_ElLf?o@Md4FB8ZA;=3TA1
+!s100 GT^T3E0MAe9HeB^5:OnjQ3
+R4
+31
+R34
+!i10b 1
+R35
+R36
+R37
+!i113 1
+R9
+R10
+Eor_3
+Z38 w1607056540
+!i122 5
+R0
+Z39 8D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/or_3.vhd
+Z40 FD:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/or_3.vhd
+l0
+L1 1
+Vc08^lE;UQ=Lb23FEfgI`N2
+!s100 XJS;Rn1Ye2fnGZizE3d]O1
+R4
+31
+R34
+!i10b 1
+R35
+Z41 !s90 -reportprogress|300|-93|-work|work|D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/or_3.vhd|
+Z42 !s107 D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/or_3.vhd|
+!i113 1
+R9
+R10
+Astruct
+DEx4 work 4 or_3 0 22 c08^lE;UQ=Lb23FEfgI`N2
+!i122 5
+l6
+L5 4
+V9;ZJTSzKdQNZmhMD;YSUI1
+!s100 W3Fm?1>ZkRNnS=kHMGL[Z2
+R4
+31
+R34
+!i10b 1
+R35
+R41
+R42
+!i113 1
+R9
+R10
+Eor_op
+Z43 w1607056545
+!i122 4
+R0
+Z44 8D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/or_op.vhd
+Z45 FD:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/or_op.vhd
+l0
+L1 1
+VhbjRabfz@Ng7YRbgKaKUM2
+!s100 ^?h=><gWUL0eI:2IN9g];1
+R4
+31
+R34
+!i10b 1
+R35
+Z46 !s90 -reportprogress|300|-93|-work|work|D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/or_op.vhd|
+Z47 !s107 D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/or_op.vhd|
+!i113 1
+R9
+R10
+Adesign
+DEx4 work 5 or_op 0 22 hbjRabfz@Ng7YRbgKaKUM2
+!i122 4
+l6
+L5 4
+VG0J^7ng7;>0HahzfI5m]Z2
+!s100 lCI=L68?amGjRAnKK6J]30
+R4
+31
+R34
+!i10b 1
+R35
+R46
+R47
+!i113 1
+R9
+R10
+Epostprocess
+Z48 w1607056551
+!i122 3
+R0
+Z49 8D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/post_processor.vhd
+Z50 FD:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/post_processor.vhd
+l0
+L1 1
+V>LiGCz6QcLYK`Ko[Y:@bJ1
+!s100 go3QHQWf^F]AgH2g<26KD1
+R4
+31
+R34
+!i10b 1
+Z51 !s108 1607074883.000000
+Z52 !s90 -reportprogress|300|-93|-work|work|D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/post_processor.vhd|
+Z53 !s107 D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/post_processor.vhd|
+!i113 1
+R9
+R10
+Astruct
+DEx4 work 11 postprocess 0 22 >LiGCz6QcLYK`Ko[Y:@bJ1
+!i122 3
+l33
+L10 54
+VaabDB0lJG16PaL`Ni7Z9=3
+!s100 kXJ[M;`<5mYG=PNzoMi7U1
+R4
+31
+R34
+!i10b 1
+R51
+R52
+R53
+!i113 1
+R9
+R10
+Eprefix_computation
+Z54 w1607056568
+!i122 2
+R0
+Z55 8D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/prefix_computation.vhd
+Z56 FD:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/prefix_computation.vhd
+l0
+L1 1
+Vfl]B^[;m3[GPlON_C<6i`0
+!s100 iUczQ0AW:kk]`<^0DF;4T2
+R4
+31
+Z57 !s110 1607074883
+!i10b 1
+R51
+Z58 !s90 -reportprogress|300|-93|-work|work|D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/prefix_computation.vhd|
+Z59 !s107 D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/prefix_computation.vhd|
+!i113 1
+R9
+R10
+Astruct
+DEx4 work 18 prefix_computation 0 22 fl]B^[;m3[GPlON_C<6i`0
+!i122 2
+l20
+L5 22
+VoZlM7SFn1PFI1EXJ6Ec^90
+!s100 Bb:DOQ]f[R]3@QGIZB2L`1
+R4
+31
+R57
+!i10b 1
+R51
+R58
+R59
+!i113 1
+R9
+R10
+Epreprocess
+Z60 w1607056563
+!i122 1
+R0
+Z61 8D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/pre_processor.vhd
+Z62 FD:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/pre_processor.vhd
+l0
+L8 1
+Vlg^OW[W3W47gX7^5DhUH00
+!s100 W;N144l2gh0dK?Xk<doZB0
+R4
+31
+R57
+!i10b 1
+R51
+Z63 !s90 -reportprogress|300|-93|-work|work|D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/pre_processor.vhd|
+Z64 !s107 D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/pre_processor.vhd|
+!i113 1
+R9
+R10
+Astruct
+DEx4 work 10 preprocess 0 22 lg^OW[W3W47gX7^5DhUH00
+!i122 1
+l18
+L12 9
+VzZ8P;J:98G:NJbDNBN0cJ3
+!s100 ;DofgD5ZUJHQ99g>1BQzo2
+R4
+31
+R57
+!i10b 1
+R51
+R63
+R64
+!i113 1
+R9
+R10
+Etestbench
+Z65 w1607074384
+!i122 12
+R0
+Z66 8D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/Testbench.vhd
+Z67 FD:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/Testbench.vhd
+l0
+L1 1
+VoImoVokT=EL:YmoRl<zdR2
+!s100 9E^^RMNoOGTG1GT[WPz2z1
+R4
+31
+Z68 !s110 1607074886
+!i10b 1
+R6
+Z69 !s90 -reportprogress|300|-93|-work|work|D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/Testbench.vhd|
+!s107 D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/Testbench.vhd|
+!i113 1
+R9
+R10
+Atb
+DEx4 work 9 testbench 0 22 oImoVokT=EL:YmoRl<zdR2
+!i122 12
+l24
+L4 161
+V4?=MU?Ojc26^CRg>1D?j`3
+!s100 ]LIi4oNZWcQN2jmHoo1Fd1
+R4
+31
+R68
+!i10b 1
+R6
+R69
+Z70 !s107 D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/Testbench.vhd|
+!i113 1
+R9
+R10
+Exor_op
+Z71 w1607056579
+!i122 0
+R0
+Z72 8D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/xor_op.vhd
+Z73 FD:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/xor_op.vhd
+l0
+L1 1
+VTBe9[mMRcnRg8Hg;Ql@nQ0
+!s100 oQ?J5>f`6aYZHiHDP1?MT1
+R4
+31
+Z74 !s110 1607074882
+!i10b 1
+Z75 !s108 1607074882.000000
+Z76 !s90 -reportprogress|300|-93|-work|work|D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/xor_op.vhd|
+Z77 !s107 D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/xor_op.vhd|
+!i113 1
+R9
+R10
+Abehaviour
+DEx4 work 6 xor_op 0 22 TBe9[mMRcnRg8Hg;Ql@nQ0
+!i122 0
+l12
+L5 13
+VUGfC9<JHNKcbG5[1^T6ID2
+!s100 Qa6lQQlV]z1nQ6=T@HEDA2
+R4
+31
+R74
+!i10b 1
+R75
+R76
+R77
+!i113 1
+R9
+R10

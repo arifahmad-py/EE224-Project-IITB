@@ -1,0 +1,159 @@
+# Reading pref.tcl
+# do ALU_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying D:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/xor_op.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:11:22 on Dec 04,2020
+# vcom -reportprogress 300 -93 -work work D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/xor_op.vhd 
+# -- Loading package STANDARD
+# -- Compiling entity xor_op
+# -- Compiling architecture behaviour of xor_op
+# End time: 15:11:22 on Dec 04,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/pre_processor.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:11:23 on Dec 04,2020
+# vcom -reportprogress 300 -93 -work work D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/pre_processor.vhd 
+# -- Loading package STANDARD
+# -- Compiling entity preprocess
+# -- Compiling architecture struct of preprocess
+# End time: 15:11:23 on Dec 04,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/prefix_computation.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:11:23 on Dec 04,2020
+# vcom -reportprogress 300 -93 -work work D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/prefix_computation.vhd 
+# -- Loading package STANDARD
+# -- Compiling entity prefix_computation
+# -- Compiling architecture struct of prefix_computation
+# End time: 15:11:23 on Dec 04,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/post_processor.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:11:23 on Dec 04,2020
+# vcom -reportprogress 300 -93 -work work D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/post_processor.vhd 
+# -- Loading package STANDARD
+# -- Compiling entity postprocess
+# -- Compiling architecture struct of postprocess
+# End time: 15:11:24 on Dec 04,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/or_op.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:11:24 on Dec 04,2020
+# vcom -reportprogress 300 -93 -work work D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/or_op.vhd 
+# -- Loading package STANDARD
+# -- Compiling entity or_op
+# -- Compiling architecture design of or_op
+# End time: 15:11:24 on Dec 04,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/or_3.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:11:24 on Dec 04,2020
+# vcom -reportprogress 300 -93 -work work D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/or_3.vhd 
+# -- Loading package STANDARD
+# -- Compiling entity or_3
+# -- Compiling architecture struct of or_3
+# End time: 15:11:24 on Dec 04,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/not_op.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:11:24 on Dec 04,2020
+# vcom -reportprogress 300 -93 -work work D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/not_op.vhd 
+# -- Loading package STANDARD
+# -- Compiling entity not_op
+# -- Compiling architecture design of not_op
+# End time: 15:11:24 on Dec 04,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/nand_op.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:11:25 on Dec 04,2020
+# vcom -reportprogress 300 -93 -work work D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/nand_op.vhd 
+# -- Loading package STANDARD
+# -- Compiling entity nand_op
+# -- Compiling architecture Struct of nand_op
+# End time: 15:11:25 on Dec 04,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/HalfAdder.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:11:25 on Dec 04,2020
+# vcom -reportprogress 300 -93 -work work D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/HalfAdder.vhd 
+# -- Loading package STANDARD
+# -- Compiling entity HalfAdder
+# -- Compiling architecture struct of HalfAdder
+# End time: 15:11:25 on Dec 04,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/and_op.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:11:25 on Dec 04,2020
+# vcom -reportprogress 300 -93 -work work D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/and_op.vhd 
+# -- Loading package STANDARD
+# -- Compiling entity and_op
+# -- Compiling architecture design of and_op
+# End time: 15:11:25 on Dec 04,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/ALU.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:11:25 on Dec 04,2020
+# vcom -reportprogress 300 -93 -work work D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/ALU.vhd 
+# -- Loading package STANDARD
+# -- Compiling entity ALU
+# -- Compiling architecture Design of ALU
+# End time: 15:11:25 on Dec 04,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/nor_15.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:11:25 on Dec 04,2020
+# vcom -reportprogress 300 -93 -work work D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/nor_15.vhd 
+# -- Loading package STANDARD
+# -- Compiling entity nor_15
+# -- Compiling architecture design of nor_15
+# End time: 15:11:25 on Dec 04,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vcom -93 -work work {D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/Testbench.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 15:11:25 on Dec 04,2020
+# vcom -reportprogress 300 -93 -work work D:/IITB 3rd sem files/EE224 - Digital Systems/Project/Tanmay Final files/Testbench.vhd 
+# -- Loading package STANDARD
+# -- Compiling entity Testbench
+# -- Compiling architecture tb of Testbench
+# End time: 15:11:26 on Dec 04,2020, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs="+acc"  Testbench
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cyclonev -L rtl_work -L work -voptargs=""+acc"" Testbench 
+# Start time: 15:11:26 on Dec 04,2020
+# Loading std.standard
+# Loading work.testbench(tb)
+# Loading work.alu(design)
+# Loading work.not_op(design)
+# Loading work.and_op(design)
+# Loading work.preprocess(struct)
+# Loading work.xor_op(behaviour)
+# Loading work.nand_op(struct)
+# Loading work.halfadder(struct)
+# Loading work.prefix_computation(struct)
+# Loading work.or_op(design)
+# Loading work.postprocess(struct)
+# Loading work.or_3(struct)
+# Loading work.nor_15(design)
+# ** Warning: Design size of 14706 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# End time: 15:34:01 on Dec 04,2020, Elapsed time: 0:22:35
+# Errors: 0, Warnings: 1
